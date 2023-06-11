@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+</head>
+
+
+<body>
+<h1 align="center" style="font-family:'Tilt Prism';font-size:40px;padding:0px;">Color now</h1>
+<div class="bod">
+<div class="random_gen">
+    <form action="/random" method="POST">
+   <a><input type="submit" value="Generate random"></a>
+</form>
+    <div class="random">
+     {% if colors %}
+{% for i in colors %}
+     <div class="single">
+<div align="center" style="background:{{i}};height:10%;padding:30px;margin:5px;border-radius:5px;width:230px;">{{i}}</div>
+         </div>
+     {% endfor %}
+     {% endif %}
+ </div></div>
+
+
+
+<div class="choose">
+<div>
+<p style=>Choose image file to upload</p>
+<form action="/upload" method="POST" enctype = "multipart/form-data">
+    <div class="img_b">
+  <input type="file" id="myFile" name="file" onchange="loadFile(event)">
+    <p><img id="output" width="300"/></p>
+        </div>
+  <a><input type="submit" value="Extract colors"></a>
+</div>
+</form>
+
+ <div class="colors">
+     {% if colors %}
+{% for i in colors %}
+     <div class="single">
+<div style="background:{{i}};height:10%;padding:30px;margin:5px;border-radius:5px;">{{i}}</div>
+         </div>
+     {% endfor %}
+     {% endif %}
+ </div>
+
+
+
+</div>
+
+</div>
+
+
+<script>
+          var loadFile = function(event) {
+              var image = document.getElementById('output');
+              image.src=URL.createObjectURL(event.target.files[0]);
+          };
+      </script>
+</body>
+</html>

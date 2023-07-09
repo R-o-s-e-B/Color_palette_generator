@@ -38,7 +38,6 @@ def upload():
 
             hex_list.append('#'+rgb_to_hex(i))
 
-        os.remove(full_path)
         return redirect(url_for('home'))
 
 

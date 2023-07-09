@@ -7,7 +7,7 @@ from random import randrange
 top_colors = None
 
 hex_list = []
-
+filename = ""
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = "static/images/"
 
@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = "static/images/"
 @app.route('/')
 def home():
     global top_colors
-    return render_template('index.html', colors=hex_list)
+    return render_template('index.html', colors=hex_list, path=filename)
 
 
 @app.route('/upload', methods=['POST', 'GET'])

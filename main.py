@@ -31,7 +31,7 @@ def upload():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         full_path = f"static/images/{filename}"
-        colors = ColorThief(full_path)
+        colors = ColorThief(filename)
         top_colors = colors.get_palette(color_count=10)
         hex_list = []
         for i in top_colors:

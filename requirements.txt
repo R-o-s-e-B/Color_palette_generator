@@ -16,3 +16,4 @@ setuptools==67.8.0
 colorthief==0.2.1
 wheel==0.40.0
 Pillow==10.0.0
+blinker==1.6.2

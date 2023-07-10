@@ -16,3 +16,5 @@ setuptools==68.0.0
 colorthief==0.2.1
 blinker==1.6.2
 Pillow==10.0.0
+Flask-Uploads==0.2.1
+numpy==1.25.1

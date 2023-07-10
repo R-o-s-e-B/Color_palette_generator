@@ -9,7 +9,7 @@ top_colors = None
 hex_list = []
 filename = ""
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "static/images/"
+app.config['UPLOAD_FOLDER'] = "static/"
 
 
 @app.route('/')

@@ -9,7 +9,7 @@ top_colors = None
 hex_list = []
 filename = ""
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = "static/images/"
+app.config['UPLOAD_FOLDER'] = "static/"
 app.secret_key = "secret key"
 
 # def rgb_to_hex(rgb):
@@ -56,14 +56,14 @@ def upload():
         file = request.files['file']
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        full_path = f"static/images/{filename}"
+        full_path = f"static/{filename}"
         colors = ColorThief(full_path)
         top_colors = colors.get_palette(color_count=10)
         hex_list = []
         for i in top_colors:
 
             hex_list.append('#'+rgb_to_hex(i))
-
+        os.remove(full_path)
         return redirect(url_for('home'))
 
 
